@@ -1,0 +1,19 @@
+.profilPage {
+	display: grid;
+	// width: 100%;
+	height: 100vh;
+	grid-template-areas:
+		"header header"
+		"aside  main";
+	grid-template-rows: 91px 1fr;
+	grid-template-columns: 117px 1fr;
+	header {
+		grid-area: header;
+	}
+	aside {
+		grid-area: aside;
+	}
+	main {
+		grid-area: main;
+	}
+}

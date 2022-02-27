@@ -1,0 +1,18 @@
+header {
+	display: flex;
+	align-items: center;
+	background: black;
+	justify-content: center;
+	color: white;
+	font-size: 24px;
+	nav {
+		width: 95%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	a {
+		color: white;
+	}
+}
