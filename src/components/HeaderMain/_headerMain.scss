@@ -1,0 +1,14 @@
+.headerMain {
+	height: 89px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	border: 1px solid red;
+	h2 {
+		font-size: 48px;
+
+		span {
+			color: red;
+		}
+	}
+}
