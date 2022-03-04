@@ -6,25 +6,32 @@ import {
 } from '../data/data';
 
 const mockedData = true;
-const userId = 12;
+const userId = 18;
 
 const server = 'http://localhost:3001/';
 
-async function getdailyActivity() {
-  if (mockedData) return findInData(USER_ACTIVITY, 'id', userId);
+async function getActivity() {
+  // if (mockedData) return findInData(USER_ACTIVITY, 'userId', userId);
+  if (mockedData) return findInData(USER_ACTIVITY, userId);
   return await getFromApi('user/' + userId + '/activity').then(
     (response) => response.data
   );
 }
 
 async function getUserData() {
-  if (mockedData) return findInData(USER_MAIN_DATA, 'id', userId);
+  // if (mockedData) return findInData(USER_MAIN_DATA, 'userId', userId);
+  if (mockedData) return findInData(USER_MAIN_DATA, userId);
   return await getFromApi('user/' + userId).then((response) => response.data);
 }
 
-function findInData(src, type, where) {
-  for (const value of Object.values(src)) {
-    if (value[type] === where) return value;
+// function findInData(src, type, where) {
+//   for (const value of Object.values(src)) {
+//     if (value[type] === where) return value;
+//   }
+// }
+function findInData(src, id) {
+  for (const value of src) {
+    if (value.userId === id) return value;
   }
 }
 
@@ -33,4 +40,4 @@ async function getFromApi(src) {
   return await response.json();
 }
 
-export { getUserData, getdailyActivity };
+export { getUserData, getActivity };

@@ -47,6 +47,7 @@
     "eslint-plugin-react": "^7.29.2",
     "eslint-plugin-react-hooks": "^4.3.0",
     "jsdoc": "^3.6.10",
-    "prettier": "^2.5.1"
+    "prettier": "^2.5.1",
+    "recharts": "^2.1.9"
   }
 }

@@ -9,7 +9,7 @@ function Main() {
   const [isDataLoading, setDataLoading] = useState(false);
 
   const [userData, setUserData] = useState({
-    id: 0,
+    userId: 0,
     keyData: {},
     score: 0,
     userInfos: {},
@@ -22,7 +22,6 @@ function Main() {
     setDataLoading(false);
   }, []);
 
-  console.log(userData);
   return isDataLoading ? (
     <Spinner />
   ) : (
@@ -36,7 +35,7 @@ function Main() {
 }
 
 Main.propTypes = {
-  id: PropTypes.number,
+  userId: PropTypes.number,
   keyData: PropTypes.objectOf(PropTypes.number),
   score: PropTypes.number,
   userInfos: PropTypes.exact({
