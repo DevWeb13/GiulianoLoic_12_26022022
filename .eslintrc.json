@@ -1,5 +1,38 @@
 {
   "extends": [
     "react-app"
-  ]
+  ],
+  "rules": {
+    "complexity": [
+      1
+    ],
+    "eqeqeq": [
+      "warn"
+    ],
+    "no-empty-function": [
+      "warn",
+      {
+        "allow": null
+      }
+    ],
+    "no-else-return": [
+      "warn",
+      {
+        "allowElseIf": true
+      }
+    ],
+    "array-bracket-spacing": [
+      "warn"
+    ],
+    "camelcase": [
+      "warn",
+      {
+        "ignoreDestructuring": false,
+        "ignoreImports"      : false,
+        "ignoreGlobals"      : false,
+        "properties"         : null,
+        "allow"              : null
+      }
+    ]
+  }
 }
