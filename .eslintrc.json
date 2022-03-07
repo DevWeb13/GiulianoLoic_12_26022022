@@ -10,10 +10,7 @@
       "warn"
     ],
     "no-empty-function": [
-      "warn",
-      {
-        "allow": null
-      }
+      "warn"
     ],
     "no-else-return": [
       "warn",
@@ -29,9 +26,8 @@
       {
         "ignoreDestructuring": false,
         "ignoreImports"      : false,
-        "ignoreGlobals"      : false,
-        "properties"         : null,
-        "allow"              : null
+        "ignoreGlobals"      : false
+     
       }
     ]
   }

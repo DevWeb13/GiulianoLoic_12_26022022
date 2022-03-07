@@ -10,7 +10,8 @@ section {
 		grid-template-areas:
 			"weight weight weight"
 			"objectives radar kpi";
-		grid-template-rows: 320px 1fr;
+		grid-template-rows: 320px 258px;
+		grid-template-columns: 256px;
 		gap: 29px;
 		.weight {
 			border: 1px solid rgb(59, 94, 71);
@@ -20,6 +21,7 @@ section {
 		.objectives {
 			border: 1px solid rgb(149, 30, 155);
 			grid-area: objectives;
+			
 		}
 		.radar {
 			border: 1px solid rgb(147, 147, 212);

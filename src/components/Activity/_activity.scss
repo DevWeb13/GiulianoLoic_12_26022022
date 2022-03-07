@@ -1,0 +1,41 @@
+.weight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #fbfbfb;
+  .headerWeight {
+    display: flex;
+    justify-content: space-between;
+    width: 92%;
+    align-items: center;
+    h2 {
+      font-size: 15px;
+    }
+    ul {
+      display: flex;
+      font-size: 14px;
+      color: #74798c;
+      width: 277px;
+      justify-content: space-between;
+      li {
+        display: flex;
+        align-items: center;
+        &::before {
+          content: '\2022';
+          font-size: 23px;
+          margin-right: 10px;
+        }
+      }
+      .burnedCaloriesLegend {
+        &::before {
+          color: #e60000;
+        }
+      }
+    }
+  }
+
+  .recharts-tooltip-item-name {
+    display: none;
+  }
+}

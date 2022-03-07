@@ -1,5 +1,5 @@
 import React from "react";
-import Weight from "../Weight/Weight";
+import Activity from "../Activity/Activity";
 import Objectives from "../Objectives/Objectives";
 import Radar from "../Radar/Radar";
 import Kpi from "../Kpi/Kpi";
@@ -9,7 +9,7 @@ function SectionMain() {
 	return (
 		<section>
 			<div className="activityContainer">
-				<Weight />
+				<Activity />
 				<Objectives />
 				<Radar />
 				<Kpi />
