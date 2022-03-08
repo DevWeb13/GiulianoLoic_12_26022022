@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
   ResponsiveContainer,
   BarChart,
@@ -8,23 +9,13 @@ import {
   Tooltip,
   Bar,
 } from 'recharts';
-import Spinner from '../Spinner/Spinner';
-import { getActivity } from '../../services/dataManager';
 
-function Activity() {
-  const [isDataLoading, setDataLoading] = useState(false);
-
-  const [activityData, setActivityData] = useState({
-    userId: 0,
-    sessions: [],
-  });
-
-  useEffect(() => {
-    setDataLoading(true);
-    getActivity().then((response) => setActivityData(response));
-    setDataLoading(false);
-  }, []);
-  // console.log(activityData.sessions);
+/**
+ *
+ * @prop {array} activityData
+ * @returns {React.ReactComponentElement}
+ */
+function Activity({ activityData }) {
   formatDate();
 
   function formatDate() {
@@ -38,9 +29,7 @@ function Activity() {
     });
   }
 
-  return isDataLoading ? (
-    <Spinner />
-  ) : (
+  return (
     <div className="weight">
       <header className="headerWeight">
         <h2>Activité quotidienne</h2>
@@ -57,7 +46,6 @@ function Activity() {
           width={50}
         >
           <Tooltip
-          
             wrapperStyle={{ width: 39 }}
             contentStyle={{ backgroundColor: '#E60000', fontSize: '7px' }}
             labelStyle={{ display: 'none' }}
@@ -65,8 +53,8 @@ function Activity() {
             // payload={[{ name: null, value: 12, unit: 'kg' }]}
             // filterNull={false}
             separator=""
-            payload={[{ name: "null", unit: "kg"}]}
-            viewBox={{x: 0, y: 0, width: 400, height: 400 }}
+            payload={[{ name: 'null', unit: 'kg' }]}
+            viewBox={{ x: 0, y: 0, width: 400, height: 400 }}
           />
           <XAxis dataKey="day" padding={{ left: 0, right: 0 }} />
           <YAxis
@@ -106,5 +94,17 @@ function Activity() {
     </div>
   );
 }
+Activity.propTypes = {
+  activityData: PropTypes.exact({
+    userId: PropTypes.number,
+    sessions: PropTypes.arrayOf(
+      PropTypes.exact({
+        day: PropTypes.string,
+        kilogram: PropTypes.number,
+        calories: PropTypes.number,
+      })
+    ),
+  }),
+};
 
 export default Activity;

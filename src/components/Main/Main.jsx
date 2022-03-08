@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import HeaderMain from '../HeaderMain/HeaderMain';
-import SectionMain from '../SectionMain/SectionMain';
+// import PropTypes from 'prop-types';
+import MainHeader from '../MainHeader/MainHeader';
+import MainSection from '../MainSection/MainSection';
 import Spinner from '../Spinner/Spinner';
 import { getUserData } from '../../services/dataManager';
 
@@ -18,7 +18,7 @@ function Main() {
   useEffect(() => {
     setDataLoading(true);
 
-    getUserData().then((userData) => setUserData(userData));
+    getUserData().then((response) => setUserData(response));
     setDataLoading(false);
   }, []);
 
@@ -27,22 +27,22 @@ function Main() {
   ) : (
     <div className="mainContainer">
       <main>
-        <HeaderMain firstName={userData.userInfos.firstName} />
-        <SectionMain />
+        <MainHeader firstName={userData.userInfos.firstName} />
+        <MainSection />
       </main>
     </div>
   );
 }
 
-Main.propTypes = {
-  userId: PropTypes.number,
-  keyData: PropTypes.objectOf(PropTypes.number),
-  score: PropTypes.number,
-  userInfos: PropTypes.exact({
-    firstName: PropTypes.string,
-    lastName: PropTypes.string,
-    age: PropTypes.number,
-  }),
-};
+// Main.propTypes = {
+//   userId: PropTypes.number,
+//   keyData: PropTypes.objectOf(PropTypes.number),
+//   score: PropTypes.number,
+//   userInfos: PropTypes.exact({
+//     firstName: PropTypes.string,
+//     lastName: PropTypes.string,
+//     age: PropTypes.number,
+//   }),
+// };
 
 export default Main;

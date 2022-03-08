@@ -1,78 +1,79 @@
-import React, { useState, useEffect } from 'react';
-import { XAxis, YAxis, LineChart, Line, ResponsiveContainer,Tooltip } from 'recharts';
-import Spinner from '../Spinner/Spinner';
-import { getAverageSession } from '../../services/dataManager';
+import PropTypes from 'prop-types';
+import {
+  XAxis,
+  LineChart,
+  Line,
+  ResponsiveContainer,
+  Tooltip,
+} from 'recharts';
 
-function Objectives() {
-  const [isDataLoading, setDataLoading] = useState(false);
-
-  const [averageSessionData, setAverageSessionData] = useState({
-    userId: 0,
-    sessions: [],
-    unit : "mn",
-  });
-
-  useEffect(() => {
-    setDataLoading(true);
-    getAverageSession().then((response) => setAverageSessionData(response));
-
-    setDataLoading(false);
-  }, []);
-  // console.log(averageSessionData.sessions);
-  
-
+/**
+ *
+ * @prop {array} averageSessionData
+ * @returns {React.ReactComponentElement}
+ */
+function Objectives({ averageSessionData }) {
   function formatDate() {
-    const weekDay = ["L","M","M","J","V","S","D"];
+    const weekDay = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
     for (let i = 0; i < averageSessionData.sessions.length; i++) {
       averageSessionData.sessions[i].day = weekDay[i];
-      
     }
-  
   }
-  
 
-  formatDate();
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       return (
         <div className="customTooltip">
           <p className="value">{`${payload[0].value} cm`}</p>
-        
         </div>
       );
     }
-  
+
     return null;
   };
- 
-  return isDataLoading ? (
-    <Spinner />
-  ) : (
+  formatDate();
+
+  return (
     <div className="objectives">
       <h2>Durée moyenne des sessions</h2>
       <ResponsiveContainer width="100%" height="70%">
         <LineChart
           data={averageSessionData.sessions}
-          margin={{ top: 0, right:5 , left: 5, bottom: 0 }}
-          
+          margin={{ top: 0, right: 5, left: 5, bottom: 0 }}
         >
-          <Tooltip content={<CustomTooltip active={undefined} payload={undefined} />}
-          
-          // wrapperStyle={{ width: 25 }}
-          // contentStyle={{ backgroundColor: '#ffffff', fontSize: '7px' , height:24,display: 'flex',alignItems: 'center'}}
-          // labelStyle={{ display: 'none' , padding:0}}
-          // itemStyle={{ color: 'red' }}
-          
-          // separator=""
-          
-        />
-          <XAxis dataKey="day"  stroke="#ffffff" axisLine={false}  tickLine={false} interval={0}/>
-          {/* <YAxis /> */} 
-          <Line type="natural" dataKey="sessionLength" stroke="#ffffff" dot={false}  strokeWidth={2}/>
+          <Tooltip
+            content={<CustomTooltip active={undefined} payload={undefined} />}
+          />
+          <XAxis
+            dataKey="day"
+            stroke="#ffffff"
+            axisLine={false}
+            tickLine={false}
+            interval={0}
+          />
+          <Line
+            type="natural"
+            dataKey="sessionLength"
+            stroke="#ffffff"
+            dot={false}
+            strokeWidth={2}
+          />
         </LineChart>
       </ResponsiveContainer>
     </div>
   );
 }
+
+Objectives.propTypes = {
+  averageSessionData: PropTypes.exact({
+    userId: PropTypes.number,
+    sessions: PropTypes.arrayOf(
+      PropTypes.exact({
+        day: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+        sessionLength: PropTypes.number,
+      })
+    ),
+  }),
+};
 
 export default Objectives;

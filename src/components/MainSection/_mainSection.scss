@@ -11,7 +11,7 @@ section {
 			"weight weight weight"
 			"objectives radar kpi";
 		grid-template-rows: 320px 258px;
-		grid-template-columns: 256px;
+		grid-template-columns: repeat(3, 257px);
 		gap: 29px;
 		.weight {
 			border: 1px solid rgb(59, 94, 71);

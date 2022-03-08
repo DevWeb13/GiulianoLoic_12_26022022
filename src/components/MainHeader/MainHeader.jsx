@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
  * @prop {string} firstName
  * @returns  {React.ReactElement}
  */
-function HeaderMain({ firstName }) {
+function MainHeader({ firstName }) {
   return (
-    <header className="headerMain">
+    <header className="mainHeader">
       <h2>
         Bonjour <span>{firstName}</span>
       </h2>
@@ -16,8 +16,8 @@ function HeaderMain({ firstName }) {
   );
 }
 
-HeaderMain.propTypes = {
+MainHeader.propTypes = {
   firstName: PropTypes.string,
 };
 
-export default HeaderMain;
+export default MainHeader;
