@@ -1,0 +1,43 @@
+.average {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  overflow: hidden;
+  position: relative;
+
+  h2 {
+    position: absolute;
+    color: white;
+    font-size: 15px;
+    width: 147px;
+    // bottom: 156px;
+    left: 34px;
+    top:29px
+  }
+  .averageResponsive{
+    font-size:12px;
+    .averageTooltip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 24px;
+      background: white;
+      position: relative;
+      bottom: 40px;
+      .value {
+        font-size: 8px;
+      }
+    }
+  }
+ 
+
+  // .objectivesTooltip{
+  //   width:8px;
+  //   height:8px;
+  //   background: pink;
+  //   border-radius: 50%;
+
+  // }
+}

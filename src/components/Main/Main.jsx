@@ -3,24 +3,59 @@ import React, { useState, useEffect } from 'react';
 import MainHeader from '../MainHeader/MainHeader';
 import MainSection from '../MainSection/MainSection';
 import Spinner from '../Spinner/Spinner';
-import { getUserData } from '../../services/dataManager';
+import {
+  getUserData,
+  getActivity,
+  getAverageSession,
+  getUserPerformance,
+} from '../../services/dataManager';
 
 function Main() {
   const [isDataLoading, setDataLoading] = useState(false);
 
   const [userData, setUserData] = useState({
-    userId: 0,
+    id: 0,
     keyData: {},
     score: 0,
-    userInfos: {},
+   userInfos: {
+      firstName: '',
+      lastName: '',
+      age:0,
+    },
   });
+
+  const [activityData, setActivityData] = useState([]);
+
+  const [averageSessionData, setAverageSessionData] = useState([]);
+
+  const [userPerformanceData, setUserPerformanceData] = useState([]);
+
+  async function getData(){
+    getUserData().then((userData) => setUserData(userData));
+
+    getActivity()
+      .then((activityData) => setActivityData(activityData));
+
+    getAverageSession()
+      .then((averageSessionData) =>
+        setAverageSessionData(averageSessionData)
+      );
+
+    getUserPerformance().then((userPerformanceData) =>
+      setUserPerformanceData(userPerformanceData)
+    );
+  }
 
   useEffect(() => {
     setDataLoading(true);
+   getData().then((data) => setDataLoading(false));
 
-    getUserData().then((response) => setUserData(response));
-    setDataLoading(false);
+    
   }, []);
+
+ 
+
+  console.log(userPerformanceData);
 
   return isDataLoading ? (
     <Spinner />
@@ -28,21 +63,15 @@ function Main() {
     <div className="mainContainer">
       <main>
         <MainHeader firstName={userData.userInfos.firstName} />
-        <MainSection />
+        <MainSection
+          userData={userData}
+          activityData={activityData}
+          averageSessionData={averageSessionData}
+          userPerformanceData={userPerformanceData}
+        />
       </main>
     </div>
   );
 }
-
-// Main.propTypes = {
-//   userId: PropTypes.number,
-//   keyData: PropTypes.objectOf(PropTypes.number),
-//   score: PropTypes.number,
-//   userInfos: PropTypes.exact({
-//     firstName: PropTypes.string,
-//     lastName: PropTypes.string,
-//     age: PropTypes.number,
-//   }),
-// };
 
 export default Main;

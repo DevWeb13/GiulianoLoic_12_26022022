@@ -1,45 +1,53 @@
 section {
-	height: 611px;
-	border: 1px solid red;
-	display: flex;
-	justify-content: space-between;
-	.activityContainer {
-		border: 1px solid blue;
-		width: 74%;
-		display: grid;
-		grid-template-areas:
-			"weight weight weight"
-			"objectives radar kpi";
-		grid-template-rows: 320px 258px;
-		grid-template-columns: repeat(3, 257px);
-		gap: 29px;
-		.weight {
-			border: 1px solid rgb(59, 94, 71);
-			grid-area: weight;
-		}
+  height: 611px;
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  .activityContainer {
+    border: 1px solid blue;
+    width: 74%;
+    display: grid;
+    grid-template-areas:
+      'activity activity activity'
+      'objectives radar kpi';
+    grid-template-rows: 320px 258px;
+    grid-template-columns: repeat(3, 257px);
+    gap: 29px;
+    .activity,
+    .average,
+    .radar,
+    .kpi {
+      border-radius: 5px;
+    }
+    .activity {
+      border: 1px solid rgb(59, 94, 71);
+      grid-area: activity;
+    }
 
-		.objectives {
-			border: 1px solid rgb(149, 30, 155);
-			grid-area: objectives;
-			
-		}
-		.radar {
-			border: 1px solid rgb(147, 147, 212);
-			grid-area: radar;
-		}
-		.kpi {
-			border: 1px solid rgb(185, 175, 34);
-			grid-area: kpi;
-		}
-	}
-	.keyFiguresContainer {
-		width: 23%;
-		border: 1px solid pink;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		.keyFigures {
-			height: 124px;
-		}
-	}
+    .average {
+      border: 1px solid rgb(149, 30, 155);
+      grid-area: objectives;
+      background: red;
+    }
+    .radar {
+      border: 1px solid rgb(147, 147, 212);
+      grid-area: radar;
+      background-color: #2e3333;
+     
+    }
+    .kpi {
+      border: 1px solid rgb(185, 175, 34);
+      grid-area: kpi;
+    }
+  }
+  .keyFiguresContainer {
+    width: 23%;
+    border: 1px solid pink;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .keyFigures {
+      height: 124px;
+    }
+  }
 }

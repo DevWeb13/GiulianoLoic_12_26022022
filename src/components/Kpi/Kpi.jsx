@@ -1,6 +1,6 @@
 import React from "react";
 
-function Kpi() {
+function Kpi({userData}) {
 	return <div className="kpi"></div>;
 }
 

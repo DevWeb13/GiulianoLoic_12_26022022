@@ -16,22 +16,10 @@ import {
  * @returns {React.ReactComponentElement}
  */
 function Activity({ activityData }) {
-  formatDate();
-
-  function formatDate() {
-    activityData.sessions.forEach((session) => {
-      let result = session.day.substring(
-        session.day.length - 2,
-        session.day.length
-      );
-      result[0] === '0' ? (session.day = result[1]) : (session.day = result);
-      return session.day;
-    });
-  }
-
+  
   return (
-    <div className="weight">
-      <header className="headerWeight">
+    <div className="activity">
+      <header className="activityHeader">
         <h2>Activité quotidienne</h2>
         <ul>
           <li className="weightLegend">Poids (kg)</li>
@@ -39,24 +27,13 @@ function Activity({ activityData }) {
         </ul>
       </header>
 
-      <ResponsiveContainer width="92%" height={145}>
+      <ResponsiveContainer width="92%" height={175}>
         <BarChart
-          data={activityData.sessions}
+          data={activityData}
           margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
-          width={50}
         >
-          <Tooltip
-            wrapperStyle={{ width: 39 }}
-            contentStyle={{ backgroundColor: '#E60000', fontSize: '7px' }}
-            labelStyle={{ display: 'none' }}
-            itemStyle={{ color: 'white' }}
-            // payload={[{ name: null, value: 12, unit: 'kg' }]}
-            // filterNull={false}
-            separator=""
-            payload={[{ name: 'null', unit: 'kg' }]}
-            viewBox={{ x: 0, y: 0, width: 400, height: 400 }}
-          />
-          <XAxis dataKey="day" padding={{ left: 0, right: 0 }} />
+          <Tooltip content={<ActivityTooltip />} />
+          <XAxis dataKey="day" />
           <YAxis
             yAxisId="right"
             dataKey="kilogram"
@@ -95,16 +72,35 @@ function Activity({ activityData }) {
   );
 }
 Activity.propTypes = {
-  activityData: PropTypes.exact({
-    userId: PropTypes.number,
-    sessions: PropTypes.arrayOf(
+  activityData: PropTypes.arrayOf(
       PropTypes.exact({
         day: PropTypes.string,
         kilogram: PropTypes.number,
         calories: PropTypes.number,
       })
     ),
-  }),
+  
+};
+
+/**
+ * @prop {Boolean} active
+ * @prop {Array} payload
+ * @return {React.ReactComponentElement}
+ */
+function ActivityTooltip({ active, payload }) {
+  return (
+    active && (
+      <ul className="activityTooltip">
+        <li>{payload[0].value}kg</li>
+        <li>{payload[1].value}kCal</li>
+      </ul>
+    )
+  );
+}
+
+ActivityTooltip.propTypes = {
+  active: PropTypes.bool,
+  payload: PropTypes.array,
 };
 
 export default Activity;

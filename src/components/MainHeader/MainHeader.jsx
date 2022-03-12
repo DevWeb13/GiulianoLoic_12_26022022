@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 /**
  * Component HeaderMain
  * @prop {string} firstName
@@ -17,7 +17,7 @@ function MainHeader({ firstName }) {
 }
 
 MainHeader.propTypes = {
-  firstName: PropTypes.string,
+  firstName: propTypes.string,
 };
 
 export default MainHeader;

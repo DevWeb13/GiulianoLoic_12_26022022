@@ -5,46 +5,79 @@ import {
   USER_PERFORMANCE,
 } from '../data/data';
 
-const mockedData = true;
-const userId = 12;
+import {
+  formatPerformanceData,
+  addDaysAverageSessions,
+  formatAverageSessionDate,
+  formatActivityDate,
+  formatTodayScoreAttribute,
+} from './dataFormatter';
+
+const mockedData = false;
+const userId = 18;
 
 const server = 'http://localhost:3001/';
 
+// Get Data ********************************************************************************************
 async function getUserPerformance() {
-  if (mockedData) return findInData(USER_PERFORMANCE, userId);
-  return await getFromApi('user/' + userId + '/today-score').then(
-    (response) => response.data
+  if (mockedData)
+    return formatPerformanceData(findInData(USER_PERFORMANCE, userId));
+  return await getFromApi('user/' + userId + '/performance').then((data) =>
+    formatPerformanceData(data)
   );
 }
 
 async function getAverageSession() {
-  if (mockedData) return findInData(USER_AVERAGE_SESSIONS, userId);
-  return await getFromApi('user/' + userId + '/average-sessions').then(
-    (response) => response.data
-  );
+  if (mockedData)
+    return formatAverageSessionDate(
+      addDaysAverageSessions(findInData(USER_AVERAGE_SESSIONS, userId))
+    );
+  return await getFromApi('user/' + userId + '/average-sessions')
+    .then((data) => addDaysAverageSessions(data))
+    .then((sessions) => formatAverageSessionDate(sessions));
 }
 
 async function getActivity() {
-  if (mockedData) return findInData(USER_ACTIVITY, userId);
-  return await getFromApi('user/' + userId + '/activity').then(
-    (response) => response.data
+  if (mockedData) return formatActivityDate(findInData(USER_ACTIVITY, userId));
+  return await getFromApi('user/' + userId + '/activity').then((data) =>
+    formatActivityDate(data)
   );
 }
 
 async function getUserData() {
-  if (mockedData) return findInData(USER_MAIN_DATA, userId);
-  return await getFromApi('user/' + userId).then((response) => response.data);
+  if (mockedData)
+    return formatTodayScoreAttribute(findInData(USER_MAIN_DATA, userId));
+  return await getFromApi('user/' + userId).then((data) =>
+    formatTodayScoreAttribute(data)
+  );
 }
 
-function findInData(src, id) {
-  for (const value of src) {
-    if (value.userId === id) return value;
+/**
+ * Get mocked user data
+ *
+ * @param   {array}   usersData
+ * @param   {number}  userId
+ *
+ * @return  {object}      User data
+ */
+function findInData(usersData, userId) {
+  for (const value of usersData) {
+    if (value.userId === userId || value.id === userId) {
+      return value;
+    }
   }
 }
 
-async function getFromApi(src) {
-  const response = await fetch(server + src);
-  return await response.json();
+/**
+ * Get API user data
+ *
+ * @param   {string}  uri  URI data
+ *
+ * @return  {promise}       User data
+ */
+async function getFromApi(uri) {
+  const response = await (await fetch(server + uri)).json();
+  return response.data;
 }
 
-export { getUserData, getActivity, getAverageSession,getUserPerformance };
+export { getUserData, getActivity, getAverageSession, getUserPerformance };

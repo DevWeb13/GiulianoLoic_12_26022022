@@ -1,50 +1,47 @@
-import PropTypes from 'prop-types';
+import React from 'react';
 import {
-  ResponsiveContainer,
-  RadarChart,
-  PolarGrid,
-  PolarAngleAxis,
-  PolarRadiusAxis,
   Radar,
+  RadarChart,
+  ResponsiveContainer,
+  PolarAngleAxis,
+  PolarGrid,
 } from 'recharts';
 
-function RadarComponent({ userPerformanceData }) {
+import propTypes from 'prop-types';
+
+/**
+ * Radar component
+ * @prop {object} userPerformanceData
+ * @return {React.ReactComponentElement}
+ */
+const RadarComponent = ({ userPerformanceData }) => {
   return (
     <div className="radar">
-      <ResponsiveContainer>
-        <RadarChart data={userPerformanceData.data}>
-          {/* <PolarGrid /> */}
-          <PolarAngleAxis dataKey="kind" />
-          {/* <PolarRadiusAxis angle={90} /> */}
-          <Radar
-            dataKey="value"
-            stroke="#8884d8"
-            fill="#8884d8"
-            fillOpacity={0.6}
+      <ResponsiveContainer width="100%" height="100%">
+        <RadarChart data={userPerformanceData} outerRadius={90}>
+          <Radar dataKey="value" fill="red" opacity={0.8} />
+          <PolarGrid
+            radialLines={false}
+            polarRadius={[10, 20, 40, 65, 90]}
           />
-          <Radar
-            dataKey="B"
-            stroke="#82ca9d"
-            fill="#82ca9d"
-            fillOpacity={0.6}
+          <PolarAngleAxis
+            dataKey="kind"
+            tick={{ fill: 'white', fontSize: '12', dy: 0 }}
+            radius={150}
           />
         </RadarChart>
       </ResponsiveContainer>
     </div>
   );
-}
+};
 
 RadarComponent.propTypes = {
-  userPerformanceData: PropTypes.exact({
-    userId: PropTypes.number,
-    kind: PropTypes.objectOf(PropTypes.string),
-    data: PropTypes.arrayOf(
-      PropTypes.exact({
-        value: PropTypes.number,
-        kind: PropTypes.number,
-      })
-    ),
-  }),
+  userPerformanceData: propTypes.arrayOf(
+    propTypes.exact({
+      value: propTypes.number,
+      kind: propTypes.string,
+    })
+  ),
 };
 
 export default RadarComponent;
