@@ -5,11 +5,30 @@
   justify-content: center;
   margin: 0 auto;
   min-width: 1124px;
- 
+  position: relative;
+  .green,
+  .red {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    right: 0;
+    top: 0;
+  }
+  .green {
+    color: green;
+  }
+  .red {
+    color: red;
+  }
   main {
     height: 48.6875rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
+}
+.noData {
+  text-align: center;
+  color: red;
+  margin: auto 0;
 }

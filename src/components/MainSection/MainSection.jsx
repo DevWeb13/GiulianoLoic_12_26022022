@@ -36,7 +36,6 @@ function MainSection({
 MainSection.propTypes = {
   userData: propTypes.exact({
     keyData: propTypes.objectOf(propTypes.number),
-
     score: propTypes.number,
     id: propTypes.number,
     userInfos: propTypes.exact({

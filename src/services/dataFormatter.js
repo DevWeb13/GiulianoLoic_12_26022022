@@ -102,6 +102,9 @@ function formatTodayScoreAttribute(data) {
   return data;
 }
 
+
+
+
 export {
   formatPerformanceData,
   addDaysAverageSessions,

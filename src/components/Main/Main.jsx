@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import MainHeader from '../MainHeader/MainHeader';
 import MainSection from '../MainSection/MainSection';
 import Spinner from '../Spinner/Spinner';
@@ -10,17 +10,18 @@ import {
   getUserPerformance,
 } from '../../services/dataManager';
 
-function Main() {
+function Main({ userId, mockedData }) {
   const [isDataLoading, setDataLoading] = useState(false);
+  // const [isError, setIsError] = useState(false);
 
   const [userData, setUserData] = useState({
     id: 0,
     keyData: {},
     score: 0,
-   userInfos: {
+    userInfos: {
       firstName: '',
       lastName: '',
-      age:0,
+      age: 0,
     },
   });
 
@@ -30,37 +31,44 @@ function Main() {
 
   const [userPerformanceData, setUserPerformanceData] = useState([]);
 
-  async function getData(){
-    getUserData().then((userData) => setUserData(userData));
+  useEffect(() => {
+    setDataLoading(true);
+    // setUserPerformanceData([]);
+    getData(userId, mockedData).then((data) => setDataLoading(false));
+    // .then((data) => setDataLoading(false))
+    // .then((isDataLoading) => {
+    //   if (userPerformanceData.length === 0) {
+    //     setIsError(true);
+    //   }
+    // });
+  }, [mockedData, userId]);
 
-    getActivity()
-      .then((activityData) => setActivityData(activityData));
+  async function getData(userId, mockedData) {
+    getUserData(userId, mockedData).then((userData) => setUserData(userData));
 
-    getAverageSession()
-      .then((averageSessionData) =>
-        setAverageSessionData(averageSessionData)
-      );
+    getActivity(userId, mockedData).then((activityData) =>
+      setActivityData(activityData)
+    );
 
-    getUserPerformance().then((userPerformanceData) =>
+    getAverageSession(userId, mockedData).then((averageSessionData) =>
+      setAverageSessionData(averageSessionData)
+    );
+
+    getUserPerformance(userId, mockedData).then((userPerformanceData) =>
       setUserPerformanceData(userPerformanceData)
     );
   }
 
-  useEffect(() => {
-    setDataLoading(true);
-   getData().then((data) => setDataLoading(false));
-
-    
-  }, []);
-
- 
-
   console.log(userPerformanceData);
-
   return isDataLoading ? (
     <Spinner />
   ) : (
     <div className="mainContainer">
+      {mockedData ? (
+        <p className="green">DataMocked</p>
+      ) : (
+        <p className="red">DataNotMocked</p>
+      )}
       <main>
         <MainHeader firstName={userData.userInfos.firstName} />
         <MainSection
@@ -73,5 +81,10 @@ function Main() {
     </div>
   );
 }
+
+Main.propTypes = {
+  userId: propTypes.number,
+  mockedData: propTypes.bool,
+};
 
 export default Main;
