@@ -102,6 +102,11 @@ function formatTodayScoreAttribute(data) {
   return data;
 }
 
+function formatScore(data){
+  data.score < 1 && (data.score = data.score * 100);
+  return data;
+}
+
 
 
 
@@ -111,4 +116,5 @@ export {
   formatAverageSessionDate,
   formatActivityDate,
   formatTodayScoreAttribute,
+  formatScore,
 };
