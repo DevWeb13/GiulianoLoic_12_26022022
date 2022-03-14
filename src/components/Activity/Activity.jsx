@@ -16,7 +16,6 @@ import {
  * @returns {React.ReactComponentElement}
  */
 function Activity({ activityData }) {
-  
   return (
     <div className="activity">
       <header className="activityHeader">
@@ -73,13 +72,12 @@ function Activity({ activityData }) {
 }
 Activity.propTypes = {
   activityData: PropTypes.arrayOf(
-      PropTypes.exact({
-        day: PropTypes.string,
-        kilogram: PropTypes.number,
-        calories: PropTypes.number,
-      })
-    ),
-  
+    PropTypes.exact({
+      day: PropTypes.string,
+      kilogram: PropTypes.number,
+      calories: PropTypes.number,
+    })
+  ),
 };
 
 /**

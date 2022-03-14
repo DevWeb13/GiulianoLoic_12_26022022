@@ -1,13 +1,12 @@
 .mainHeader {
-	height: 89px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	h2 {
-		font-size: 48px;
-
-		span {
-			color: red;
-		}
-	}
+  display           : flex;
+  flex-direction    : column;
+  height            : 5.5625rem;
+  justify-content   : space-between;
+  h2 {
+    font-size       : 3rem;
+    span {
+      color         : red;
+    }
+  }
 }

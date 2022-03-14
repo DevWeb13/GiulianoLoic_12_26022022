@@ -1,43 +1,32 @@
 .average {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-around;
-  overflow: hidden;
-  position: relative;
-
+  align-items           : center;
+  display               : flex;
+  flex-direction        : column;
+  justify-content       : space-around;
+  overflow              : hidden;
+  position              : relative;
   h2 {
-    position: absolute;
-    color: white;
-    font-size: 15px;
-    width: 147px;
-    // bottom: 156px;
-    left: 34px;
-    top:29px
+    color               : white;
+    font-size           : 0.9375rem;
+    left                : 2.125rem;
+    position            : absolute;
+    top                 : 1.8125rem;
+    width               : 9.1875rem;
   }
-  .averageResponsive{
-    font-size:12px;
+  .averageResponsive {
+    font-size           : 0.75rem;
     .averageTooltip {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 30px;
-      height: 24px;
-      background: white;
-      position: relative;
-      bottom: 40px;
+      align-items       : center;
+      background        : white;
+      bottom            : 2.5rem;
+      display           : flex;
+      height            : 1.5rem;
+      justify-content   : center;
+      position          : relative;
+      width             : 1.875rem;
       .value {
-        font-size: 8px;
+        font-size       : 0.5rem;
       }
     }
   }
- 
-
-  // .objectivesTooltip{
-  //   width:8px;
-  //   height:8px;
-  //   background: pink;
-  //   border-radius: 50%;
-
-  // }
 }

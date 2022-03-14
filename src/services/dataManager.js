@@ -12,7 +12,6 @@ import {
   formatActivityDate,
   formatTodayScoreAttribute,
   formatScore,
-
 } from './dataFormatter';
 
 const server = 'http://localhost:3001/';
@@ -77,9 +76,11 @@ async function getActivity(userId, mockedData) {
  */
 async function getUserData(userId, mockedData) {
   if (mockedData)
-    return (formatScore(formatTodayScoreAttribute(findInData(USER_MAIN_DATA, userId))));
+    return formatScore(
+      formatTodayScoreAttribute(findInData(USER_MAIN_DATA, userId))
+    );
   return await getFromApi('user/' + userId).then((data) =>
-  formatScore(formatTodayScoreAttribute(data))
+    formatScore(formatTodayScoreAttribute(data))
   );
 }
 

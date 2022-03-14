@@ -20,10 +20,7 @@ const RadarComponent = ({ userPerformanceData }) => {
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart data={userPerformanceData} outerRadius={90}>
           <Radar dataKey="value" fill="red" opacity={0.8} />
-          <PolarGrid
-            radialLines={false}
-            polarRadius={[10, 20, 40, 65, 90]}
-          />
+          <PolarGrid radialLines={false} polarRadius={[10, 20, 40, 65, 90]} />
           <PolarAngleAxis
             dataKey="kind"
             tick={{ fill: 'white', fontSize: '12', dy: 0 }}

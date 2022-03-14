@@ -1,10 +1,20 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import propTypes from 'prop-types';
 
+/**
+ * Header component
+ * @prop {number} userId 
+ * @prop {func} setUserId
+ * @prop {bool} mockedData
+ * @prop {func} setMockedData
+ * @returns {React.ReactComponentElement}
+ */
 function Header({ userId, setUserId, mockedData, setMockedData }) {
   function userToggle() {
     userId === 12 ? setUserId(18) : setUserId(12);
   }
+
   function dataToggle() {
     mockedData === true ? setMockedData(false) : setMockedData(true);
   }
@@ -25,5 +35,12 @@ function Header({ userId, setUserId, mockedData, setMockedData }) {
     </header>
   );
 }
+
+Header.propTypes = {
+  userId: propTypes.number,
+  setUserId: propTypes.func,
+  mockedData: propTypes.bool,
+  setMockedData: propTypes.func,
+};
 
 export default Header;

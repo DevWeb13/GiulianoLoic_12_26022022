@@ -1,18 +1,17 @@
 .header {
-	display: flex;
-	align-items: center;
-	background: black;
-	justify-content: center;
-	color: white;
-	font-size: 24px;
+	align-items        : center;
+	background         : black;
+	color              : white;
+	display            : flex;
+	font-size          : 1.5rem;
+	justify-content    : center;
 	nav {
-		width: 95%;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
+		align-items       : center;
+		display           : flex;
+		justify-content   : space-between;
+		width             : 95%;
 	}
-
 	a {
-		color: white;
+		color             : white;
 	}
 }

@@ -1,47 +1,53 @@
 import React from 'react';
 import propTypes from 'prop-types';
 // import Spinner from "../Spinner/Spinner";
-// import { getActivity,getAverageSession,getUserPerformance } from '../../services/dataManager';
 import Activity from '../Activity/Activity';
 import Average from '../Average/Average';
 import RadarComponent from '../RadarComponent/RadarComponent';
 import Kpi from '../Kpi/Kpi';
 import KeyFigures from '../KeyFigures/KeyFigures';
 
+
+/**
+ * MainSection component
+ * @prop {object} userData 
+ * @prop {object} activityData 
+ * @prop {object} averageSessionData 
+ * @prop {object} userPerformanceData 
+ * @returns {React.ReactComponentElement}
+ */
 function MainSection({
   userData,
   activityData,
   averageSessionData,
   userPerformanceData,
 }) {
-  
-  const internationalNumberFormat = new Intl.NumberFormat('en-US')
+  const internationalNumberFormat = new Intl.NumberFormat('en-US');
   const keyFiguresIcon = [
     {
-    icon: 'calories-icon.svg',
-    count: internationalNumberFormat.format(userData.keyData.calorieCount) + "kCal",
-    type: 'Calories',
-  },
-  {
-    icon: 'protein-icon.svg',
-    count: userData.keyData.proteinCount + "g",
-    type: 'Proteines',
-  },
-  {
-    icon: 'carbs-icon.svg',
-    count: userData.keyData.carbohydrateCount + "g",
-    type: 'Glucides',
-  },
-  {
-    icon: 'fat-icon.svg',
-    count: userData.keyData.lipidCount + "g",
-    type: 'Lipides',
-  },
-  ]
-//   const givenNumber = 123423134231233423;
+      icon: 'calories-icon.svg',
+      count:
+        internationalNumberFormat.format(userData.keyData.calorieCount) +
+        'kCal',
+      type: 'Calories',
+    },
+    {
+      icon: 'protein-icon.svg',
+      count: userData.keyData.proteinCount + 'g',
+      type: 'Proteines',
+    },
+    {
+      icon: 'carbs-icon.svg',
+      count: userData.keyData.carbohydrateCount + 'g',
+      type: 'Glucides',
+    },
+    {
+      icon: 'fat-icon.svg',
+      count: userData.keyData.lipidCount + 'g',
+      type: 'Lipides',
+    },
+  ];
 
-// internationalNumberFormat = new Intl.NumberFormat('en-US')
-// console.log(internationalNumberFormat.format(givenNumber)
   return (
     <section>
       <div className="activityContainer">
@@ -51,11 +57,14 @@ function MainSection({
         <Kpi userData={userData} />
       </div>
       <div className="keyFiguresContainer">
-       {keyFiguresIcon.map((elm , index) => (
-         
-         <KeyFigures key={index} icon={`./assets/${elm.icon}`}  count={elm.count} type={elm.type}/>
-       ))}
-       
+        {keyFiguresIcon.map((elm, index) => (
+          <KeyFigures
+            key={index}
+            icon={`./assets/${elm.icon}`}
+            count={elm.count}
+            type={elm.type}
+          />
+        ))}
       </div>
     </section>
   );
@@ -65,7 +74,7 @@ MainSection.propTypes = {
   userData: propTypes.exact({
     keyData: propTypes.objectOf(propTypes.number),
     score: propTypes.number,
-    fill: propTypes.string,                                     
+    fill: propTypes.string,
     id: propTypes.number,
     userInfos: propTypes.exact({
       firstName: propTypes.string,
@@ -97,5 +106,3 @@ MainSection.propTypes = {
   ),
 };
 export default MainSection;
-
-

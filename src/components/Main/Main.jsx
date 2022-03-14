@@ -10,6 +10,12 @@ import {
   getUserPerformance,
 } from '../../services/dataManager';
 
+/**
+ * 
+ * @prop {number} userId 
+ * @prop {string} mockedData
+ * @returns {React.ReactComponentElement}
+ */
 function Main({ userId, mockedData }) {
   const [isDataLoading, setDataLoading] = useState(false);
   // const [isError, setIsError] = useState(false);

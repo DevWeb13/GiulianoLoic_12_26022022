@@ -1,18 +1,18 @@
 .profilPage {
-	display: grid;
-	height: 100vh;
-	grid-template-areas:
-		"header header"
-		"aside  main";
-	grid-template-rows: 5.6875rem 1fr;
-	grid-template-columns: 7.3125rem 1fr;
-	header {
-		grid-area: header;
-	}
-	aside {
-		grid-area: aside;
-	}
-	main {
-		grid-area: main;
-	}
+  display               : grid;
+  grid-template-areas   : 
+    'header header'
+    'aside  main';
+  grid-template-rows    : 5.6875rem 1fr;
+  grid-template-columns : 7.3125rem 1fr;
+  height                : 100vh;
+  header {
+    grid-area           : header;
+  }
+  aside {
+    grid-area           : aside;
+  }
+  main {
+    grid-area           : main;
+  }
 }

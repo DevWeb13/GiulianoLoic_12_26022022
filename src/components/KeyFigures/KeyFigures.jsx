@@ -1,5 +1,13 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
+/**
+ * KeyFigures component
+ * @prop {strin} icon Link from icon
+ * @prop {strin} count number of type
+ * @prop {strin} type  unité
+ * @returns {React.ReactComponentElement}
+ */
 function KeyFigures({ icon, count, type }) {
   return (
     <div className="keyFigures">
@@ -11,5 +19,11 @@ function KeyFigures({ icon, count, type }) {
     </div>
   );
 }
+
+KeyFigures.propTypes = {
+  icon: propTypes.string,
+  count: propTypes.string,
+  type: propTypes.string,
+};
 
 export default KeyFigures;

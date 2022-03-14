@@ -1,54 +1,47 @@
 section {
-  height: 611px;
-  display: flex;
-  justify-content: space-between;
+  display                 : flex;
+  height                  : 38.1875rem;
+  justify-content         : space-between;
   .activityContainer {
-  
-    width: 74%;
-    display: grid;
-    grid-template-areas:
+    display               : grid;
+    width                 : 74%;
+    gap                   : 1.8125rem;
+    grid-template-areas   : 
       'activity activity activity'
       'objectives radar kpi';
-    grid-template-rows: 320px 258px;
-    grid-template-columns: repeat(3, 257px);
-    gap: 29px;
+    grid-template-columns : repeat(3, 16.0625rem);
+    grid-template-rows    : 20rem 16.125rem;
     .activity,
     .average,
     .radar,
     .kpi {
-      border-radius: 5px;
+      border-radius       : .3125rem;
     }
     .activity {
-      
-      grid-area: activity;
+      grid-area           : activity;
     }
 
     .average {
-     
-      grid-area: objectives;
-      background: red;
+      background          : red;
+      grid-area           : objectives;
     }
     .radar {
-      
-      grid-area: radar;
-      background-color: #2e3333;
-     
+      background-color    : #2e3333;
+      grid-area           : radar;
     }
     .kpi {
-      
-      grid-area: kpi;
-      background: #FBFBFB;
-
+      background          : #fbfbfb;
+      grid-area           : kpi;
     }
   }
   .keyFiguresContainer {
-    width: 23%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display               : flex;
+    flex-direction        : column;
+    justify-content       : space-between;
+    width                 : 23%;
     .keyFigures {
-      height: 124px;
-      background:#FBFBFB;
+      background          : #fbfbfb;
+      height              : 7.75rem;
     }
   }
 }
