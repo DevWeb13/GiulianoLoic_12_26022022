@@ -2,8 +2,7 @@ import React from 'react';
 import { ResponsiveContainer, RadialBarChart, RadialBar } from 'recharts';
 
 function Kpi({ userData }) {
-  console.log(userData);
-	userData.fill = 'red';
+	
 	const scoreMax = {
 		score: 100,
 		fill: 'transparent',

@@ -14,7 +14,34 @@ function MainSection({
   averageSessionData,
   userPerformanceData,
 }) {
-  console.log(userPerformanceData);
+  
+  const internationalNumberFormat = new Intl.NumberFormat('en-US')
+  const keyFiguresIcon = [
+    {
+    icon: 'calories-icon.svg',
+    count: internationalNumberFormat.format(userData.keyData.calorieCount) + "kCal",
+    type: 'Calories',
+  },
+  {
+    icon: 'protein-icon.svg',
+    count: userData.keyData.proteinCount + "g",
+    type: 'Proteines',
+  },
+  {
+    icon: 'carbs-icon.svg',
+    count: userData.keyData.carbohydrateCount + "g",
+    type: 'Glucides',
+  },
+  {
+    icon: 'fat-icon.svg',
+    count: userData.keyData.lipidCount + "g",
+    type: 'Lipides',
+  },
+  ]
+//   const givenNumber = 123423134231233423;
+
+// internationalNumberFormat = new Intl.NumberFormat('en-US')
+// console.log(internationalNumberFormat.format(givenNumber)
   return (
     <section>
       <div className="activityContainer">
@@ -24,10 +51,11 @@ function MainSection({
         <Kpi userData={userData} />
       </div>
       <div className="keyFiguresContainer">
-        <KeyFigures />
-        <KeyFigures />
-        <KeyFigures />
-        <KeyFigures />
+       {keyFiguresIcon.map((elm , index) => (
+         
+         <KeyFigures key={index} icon={`./assets/${elm.icon}`}  count={elm.count} type={elm.type}/>
+       ))}
+       
       </div>
     </section>
   );
@@ -37,6 +65,7 @@ MainSection.propTypes = {
   userData: propTypes.exact({
     keyData: propTypes.objectOf(propTypes.number),
     score: propTypes.number,
+    fill: propTypes.string,                                     
     id: propTypes.number,
     userInfos: propTypes.exact({
       firstName: propTypes.string,
@@ -68,3 +97,5 @@ MainSection.propTypes = {
   ),
 };
 export default MainSection;
+
+

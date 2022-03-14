@@ -23,6 +23,7 @@ function Main({ userId, mockedData }) {
       lastName: '',
       age: 0,
     },
+    fill:"",
   });
 
   const [activityData, setActivityData] = useState([]);
@@ -58,8 +59,8 @@ function Main({ userId, mockedData }) {
       setUserPerformanceData(userPerformanceData)
     );
   }
-
-  console.log(userPerformanceData);
+  
+  userData.fill = "red";
   return isDataLoading ? (
     <Spinner />
   ) : (

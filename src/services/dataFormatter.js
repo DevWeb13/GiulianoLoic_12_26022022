@@ -94,11 +94,9 @@ function formatActivityDate(data) {
  */
 function formatTodayScoreAttribute(data) {
   if (data.todayScore) {
-    console.log(data.todayScore);
     data.score = data.todayScore;
     delete data.todayScore;
   }
-  console.log(data);
   return data;
 }
 
@@ -106,6 +104,8 @@ function formatScore(data){
   data.score < 1 && (data.score = data.score * 100);
   return data;
 }
+
+
 
 
 
