@@ -4,14 +4,14 @@ import propTypes from 'prop-types';
 
 /**
  * Header component
- * @prop {number} userId 
+ * @prop {number} userId
  * @prop {func} setUserId
  * @prop {bool} mockedData
  * @prop {func} setMockedData
  * @returns {React.ReactComponentElement}
  */
-function Header({ userId, setUserId, mockedData, setMockedData }) {
-  function userToggle() {
+function Header({ userId, setUserId, mockedData, setMockedData}) {
+  function userToggle(userId) {
     userId === 12 ? setUserId(18) : setUserId(12);
   }
 
@@ -19,15 +19,18 @@ function Header({ userId, setUserId, mockedData, setMockedData }) {
     mockedData === true ? setMockedData(false) : setMockedData(true);
   }
 
+
   return (
     <header className="header">
       <nav>
         <img src="./assets/logo.svg" alt="logo" />
-        <NavLink to="/">Accueil</NavLink>
-        <NavLink to="/" onClick={userToggle}>
+        <NavLink to="/" >
+          Accueil
+        </NavLink>
+        <NavLink to={`/${userId}`} onClick={() => userToggle(userId)}>
           Profil
         </NavLink>
-        <NavLink to="/" onClick={dataToggle}>
+        <NavLink to={`/${userId}`} onClick={dataToggle}>
           Réglage
         </NavLink>
         <NavLink to="/">Communauté</NavLink>

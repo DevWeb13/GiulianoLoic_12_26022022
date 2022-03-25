@@ -1,18 +1,24 @@
 import React from 'react';
 import { RadialBarChart, RadialBar } from 'recharts';
 import propTypes from 'prop-types';
+import Spinner from '../Spinner/Spinner';
 
 /**
  * Kpi component
- * @prop {object} userData 
+ * @prop {object} userData
+ * @prop {boolean} isUserDataLoading
  * @returns {React.ReactComponentElement}
  */
-function Kpi({ userData }) {
+function Kpi({ userData, isUserDataLoading }) {
   const scoreMax = {
     score: 100,
     fill: 'transparent',
   };
-  return (
+  return isUserDataLoading ? (
+    <div className="kpi">
+      <Spinner />
+    </div>
+  ) : (
     <div className="kpi">
       <h2>Score</h2>
       <RadialBarChart
@@ -30,7 +36,7 @@ function Kpi({ userData }) {
         <RadialBar dataKey="score" cornerRadius={10} />
         <circle cx="50%" cy="50%" fill="white" r="70"></circle>
       </RadialBarChart>
-      <p>
+      <p className="p">
         <span>{userData.score}%</span> <br />
         de votre <br />
         objectif
@@ -41,5 +47,6 @@ function Kpi({ userData }) {
 
 Kpi.propTypes = {
   userData: propTypes.object,
+  isUserDataLoading: propTypes.bool,
 };
 export default Kpi;

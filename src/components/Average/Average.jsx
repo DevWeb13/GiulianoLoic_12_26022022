@@ -1,4 +1,5 @@
 import propTypes from 'prop-types';
+import Spinner from '../Spinner/Spinner';
 import {
   YAxis,
   XAxis,
@@ -10,10 +11,15 @@ import {
 /**
  * Average component
  * @prop {object} averageSessionData
+ * @prop {bool} isAverageSessionDataLoading
  * @returns {React.ReactComponentElement}
  */
-function Average({ averageSessionData }) {
-  return (
+function Average({ averageSessionData , isAverageSessionDataLoading}) {
+  return isAverageSessionDataLoading ?(
+    <div className="average">
+      <Spinner />
+    </div>
+  ):(
     <div className="average">
       <h2>Durée moyenne des sessions</h2>
       <ResponsiveContainer
@@ -69,6 +75,7 @@ Average.propTypes = {
       sessionLength: propTypes.number,
     })
   ),
+  isAverageSessionDataLoading: propTypes.bool,
 };
 
 function AverageTooltip({ active, payload }) {

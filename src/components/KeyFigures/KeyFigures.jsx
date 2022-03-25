@@ -1,5 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import Spinner from '../Spinner/Spinner';
 
 /**
  * KeyFigures component
@@ -8,8 +9,12 @@ import propTypes from 'prop-types';
  * @prop {strin} type  unité
  * @returns {React.ReactComponentElement}
  */
-function KeyFigures({ icon, count, type }) {
-  return (
+function KeyFigures({ icon, count, type ,isUserDataLoading}) {
+  return isUserDataLoading ? (
+    <div className="keyFigures">
+      <Spinner />
+    </div>
+  ):(
     <div className="keyFigures">
       <img src={icon} alt={icon} />
       <div className="countContainer">

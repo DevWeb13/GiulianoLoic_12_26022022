@@ -1,23 +1,24 @@
-import React, { useState } from 'react';
-import Header from '../../components/Header/Header';
-import Aside from '../../components/Aside/Aside';
+import React from 'react';
 import Main from '../../components/Main/Main';
+import { useParams } from 'react-router-dom';
+import propTypes from 'prop-types';
 
-function ProfilPage() {
-  const [userId, setUserId] = useState(12);
-  const [mockedData, setMockedData] = useState(true);
+/**
+ *  @prop {bool} mockedData
+ * @returns {React.ReactComponentElement}
+ */
+function ProfilPage({ mockedData }) {
+  let { userId } = useParams();
+
   return (
     <div className="profilPage">
-      <Header
-        userId={userId}
-        setUserId={setUserId}
-        mockedData={mockedData}
-        setMockedData={setMockedData}
-      />
-      <Aside />
-      <Main userId={userId} mockedData={mockedData} />
+      <Main userId={parseInt(userId)} mockedData={mockedData} />
     </div>
   );
 }
+
+ProfilPage.propTypes = {
+  mockedData: propTypes.bool,
+};
 
 export default ProfilPage;

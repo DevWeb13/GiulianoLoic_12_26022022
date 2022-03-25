@@ -18,9 +18,13 @@ import KeyFigures from '../KeyFigures/KeyFigures';
  */
 function MainSection({
   userData,
+  isUserDataLoading,
   activityData,
+  isActivityDataLoading,
   averageSessionData,
+  isAverageSessionDataLoading,
   userPerformanceData,
+  isUserPerformanceDataLoading,
 }) {
   const internationalNumberFormat = new Intl.NumberFormat('en-US');
   const keyFiguresIcon = [
@@ -51,10 +55,10 @@ function MainSection({
   return (
     <section>
       <div className="activityContainer">
-        <Activity activityData={activityData} />
-        <Average averageSessionData={averageSessionData} />
-        <RadarComponent userPerformanceData={userPerformanceData} />
-        <Kpi userData={userData} />
+        <Activity activityData={activityData} isActivityDataLoading={isActivityDataLoading}/>
+        <Average averageSessionData={averageSessionData}  isAverageSessionDataLoading={isAverageSessionDataLoading}/>
+        <RadarComponent userPerformanceData={userPerformanceData} isUserPerformanceDataLoading={isUserPerformanceDataLoading}/>
+        <Kpi userData={userData} isUserDataLoading={isUserDataLoading}/>
       </div>
       <div className="keyFiguresContainer">
         {keyFiguresIcon.map((elm, index) => (
@@ -63,6 +67,7 @@ function MainSection({
             icon={`./assets/${elm.icon}`}
             count={elm.count}
             type={elm.type}
+            isUserDataLoading={isUserDataLoading}
           />
         ))}
       </div>

@@ -1,4 +1,6 @@
 import React from 'react';
+import Spinner from '../Spinner/Spinner';
+
 import {
   Radar,
   RadarChart,
@@ -14,8 +16,12 @@ import propTypes from 'prop-types';
  * @prop {object} userPerformanceData
  * @return {React.ReactComponentElement}
  */
-const RadarComponent = ({ userPerformanceData }) => {
-  return (
+const RadarComponent = ({ userPerformanceData, isUserPerformanceDataLoading }) => {
+  return isUserPerformanceDataLoading ? (
+    <div className="radar">
+      <Spinner />
+    </div>
+  ):(
     <div className="radar">
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart data={userPerformanceData} outerRadius={90}>

@@ -1,3 +1,14 @@
+
+
+
+
+
+
+
+
+
+
+
 import {
   USER_MAIN_DATA,
   USER_ACTIVITY,
@@ -108,16 +119,17 @@ function findInData(usersData, userId) {
  * @return  {promise}       User data
  */
 async function getFromApi(uri) {
-  const response = await (await fetch(server + uri)).json();
-  return response.data;
-  // try {
-  //   const datas = await fetch(server + uri)
-  //     .then((res) => res.json())
-  //     .then((data) => data.data);
-  //   return datas;
-  // } catch (err) {
-  //   return err;
-  // }
+  // const response = await (await fetch(server + uri)).json();
+  // return response.data;
+  try {
+    const datas = await fetch(server + uri)
+      .then((res) => res.json())
+      .then((data) => data.data);
+    return datas;
+  } catch (err) {
+    console.error(err);
+    throw err;
+  }
 }
 
 export { getUserData, getActivity, getAverageSession, getUserPerformance };

@@ -1,5 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
+import Spinner from '../Spinner/Spinner';
 import {
   ResponsiveContainer,
   BarChart,
@@ -13,10 +14,15 @@ import {
 /**
  *
  * @prop {array} activityData
+ * @prop {boolean} isActivityDataLoading
  * @returns {React.ReactComponentElement}
  */
-function Activity({ activityData }) {
-  return (
+function Activity({ activityData, isActivityDataLoading }) {
+  return isActivityDataLoading ? (
+    <div className="activity">
+      <Spinner />
+    </div>
+  ) : (
     <div className="activity">
       <header className="activityHeader">
         <h2>Activité quotidienne</h2>
@@ -71,13 +77,14 @@ function Activity({ activityData }) {
   );
 }
 Activity.propTypes = {
-  activityData: PropTypes.arrayOf(
-    PropTypes.exact({
-      day: PropTypes.string,
-      kilogram: PropTypes.number,
-      calories: PropTypes.number,
+  activityData: propTypes.arrayOf(
+    propTypes.exact({
+      day: propTypes.string,
+      kilogram: propTypes.number,
+      calories: propTypes.number,
     })
   ),
+  isActivityDataLoading: propTypes.bool,
 };
 
 /**
@@ -97,8 +104,8 @@ function ActivityTooltip({ active, payload }) {
 }
 
 ActivityTooltip.propTypes = {
-  active: PropTypes.bool,
-  payload: PropTypes.array,
+  active: propTypes.bool,
+  payload: propTypes.array,
 };
 
 export default Activity;

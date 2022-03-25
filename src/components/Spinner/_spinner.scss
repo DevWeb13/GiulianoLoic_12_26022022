@@ -1,5 +1,36 @@
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(359deg);
+	}
+}
+
 .spinner {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  .rondPlein {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+    background: linear-gradient(230.46deg, #0000ff -2.98%, #668f37 68.14%, #00ff00 104.54%);
+    border-radius: 50%;
+    width: 45px;
+		animation: rotate 1s linear infinite;
+    height: 45px;
+
+		.rondVide{
+		
+			width: 30px;
+		
+			height: 30px;
+			border-radius: 50%;
+			background : white;
+		}
+  }
 }
