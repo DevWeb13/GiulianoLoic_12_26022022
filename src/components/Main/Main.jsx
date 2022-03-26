@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
 import propTypes from 'prop-types';
+import Error from '../Error/Error';
 import MainHeader from '../MainHeader/MainHeader';
 import MainSection from '../MainSection/MainSection';
 import {
@@ -70,9 +70,9 @@ function Main({ userId, mockedData }) {
   
   userData.fill = "red";
   return isUserDataLoading? (
-    <div className="mainContainer">
-      <h2>Error</h2>
-    </div>
+   
+     <Error />
+   
   ):(
     <div className="mainContainer">
       {mockedData ? (
