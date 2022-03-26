@@ -1,14 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
 import {
   USER_MAIN_DATA,
   USER_ACTIVITY,
@@ -26,7 +15,6 @@ import {
 } from './dataFormatter';
 
 const server = 'http://localhost:3001/';
-
 
 // Get Data ********************************************************************************************
 /**
@@ -120,37 +108,12 @@ function findInData(usersData, userId) {
  * @return  {promise}       User data
  */
 async function getFromApi(uri) {
-  
   // const response = await (await fetch(server + uri)).json();
   // return response.data;
-
-  try {
-    const datas = fetch(server + uri)
-      .then((res) => res.json())
-      .then((data) => data.data);
-    return datas;
-  } 
-  catch (err) {
-    
-    
-  throw err;
-  }
-
-
+  const datas = fetch(server + uri)
+    .then((res) => res.json())
+    .then((data) => data.data);
+  return datas;
 }
-
-// fetch('flowers.jpg').then(function(response) {
-//   if(response.ok) {
-//     response.blob().then(function(myBlob) {
-//       var objectURL = URL.createObjectURL(myBlob);
-//       myImage.src = objectURL;
-//     });
-//   } else {
-//     console.log('Mauvaise réponse du réseau');
-//   }
-// })
-// .catch(function(error) {
-//   console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
-// });
 
 export { getUserData, getActivity, getAverageSession, getUserPerformance };

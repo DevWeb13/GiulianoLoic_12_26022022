@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import propTypes from 'prop-types';
 import Error from '../Error/Error';
-import Spinner from '../Spinner/Spinner';
-
 import MainHeader from '../MainHeader/MainHeader';
 import MainSection from '../MainSection/MainSection';
 import {
