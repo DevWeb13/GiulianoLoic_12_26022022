@@ -108,12 +108,12 @@ function findInData(usersData, userId) {
  * @return  {promise}       User data
  */
 async function getFromApi(uri) {
-  // const response = await (await fetch(server + uri)).json();
-  // return response.data;
-  const datas = fetch(server + uri)
-    .then((res) => res.json())
-    .then((data) => data.data);
-  return datas;
+  const response = await (await fetch(server + uri)).json();
+  return response.data;
+  // const datas = fetch(server + uri)
+  //   .then((res) => res.json())
+  //   .then((data) => data.data);
+  // return datas;
 }
 
 export { getUserData, getActivity, getAverageSession, getUserPerformance };
