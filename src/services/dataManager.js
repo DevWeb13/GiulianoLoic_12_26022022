@@ -27,6 +27,7 @@ import {
 
 const server = 'http://localhost:3001/';
 
+
 // Get Data ********************************************************************************************
 /**
  * Get user performance data
@@ -119,17 +120,37 @@ function findInData(usersData, userId) {
  * @return  {promise}       User data
  */
 async function getFromApi(uri) {
+  
   // const response = await (await fetch(server + uri)).json();
   // return response.data;
+
   try {
-    const datas = await fetch(server + uri)
+    const datas = fetch(server + uri)
       .then((res) => res.json())
       .then((data) => data.data);
     return datas;
-  } catch (err) {
-    console.error(err);
-    throw err;
+  } 
+  catch (err) {
+    
+    
+  throw err;
   }
+
+
 }
+
+// fetch('flowers.jpg').then(function(response) {
+//   if(response.ok) {
+//     response.blob().then(function(myBlob) {
+//       var objectURL = URL.createObjectURL(myBlob);
+//       myImage.src = objectURL;
+//     });
+//   } else {
+//     console.log('Mauvaise réponse du réseau');
+//   }
+// })
+// .catch(function(error) {
+//   console.log('Il y a eu un problème avec l\'opération fetch: ' + error.message);
+// });
 
 export { getUserData, getActivity, getAverageSession, getUserPerformance };
