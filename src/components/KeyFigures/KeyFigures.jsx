@@ -4,9 +4,9 @@ import Spinner from '../Spinner/Spinner';
 
 /**
  * KeyFigures component
- * @prop {strin} icon Link from icon
- * @prop {strin} count number of type
- * @prop {strin} type  unité
+ * @prop {string} icon Link from icon
+ * @prop {string} count number of type
+ * @prop {string} type  unité
  * @returns {React.ReactComponentElement}
  */
 function KeyFigures({ icon, count, type ,isUserDataLoading}) {

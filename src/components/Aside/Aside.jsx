@@ -10,7 +10,7 @@ function Aside() {
         <nav>
           {images.map((image, index) => (
             <NavLink key={index} to="/">
-              <img src={`./assets/${image}.svg`} alt={image} />
+              <img src={`../assets/${image}.svg`} alt={image} />
             </NavLink>
           ))}
         </nav>

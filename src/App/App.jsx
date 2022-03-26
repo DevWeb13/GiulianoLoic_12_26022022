@@ -25,7 +25,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route
-            path="/:userId"
+            path="/user/:userId"
             element={<ProfilPage mockedData={mockedData} />}
           ></Route>
         </Routes>

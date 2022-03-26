@@ -23,14 +23,14 @@ function Header({ userId, setUserId, mockedData, setMockedData}) {
   return (
     <header className="header">
       <nav>
-        <img src="./assets/logo.svg" alt="logo" />
+        <img src="../assets/logo.svg" alt="logo" />
         <NavLink to="/" >
           Accueil
         </NavLink>
-        <NavLink to={`/${userId}`} onClick={() => userToggle(userId)}>
+        <NavLink to={`/user/${userId}`} onClick={() => userToggle(userId)}>
           Profil
         </NavLink>
-        <NavLink to={`/${userId}`} onClick={dataToggle}>
+        <NavLink to={`/user/${userId}`} onClick={dataToggle}>
           Réglage
         </NavLink>
         <NavLink to="/">Communauté</NavLink>

@@ -64,7 +64,7 @@ function MainSection({
         {keyFiguresIcon.map((elm, index) => (
           <KeyFigures
             key={index}
-            icon={`./assets/${elm.icon}`}
+            icon={`../assets/${elm.icon}`}
             count={elm.count}
             type={elm.type}
             isUserDataLoading={isUserDataLoading}
