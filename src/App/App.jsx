@@ -8,8 +8,6 @@ import Aside from '../components/Aside/Aside';
 const App = () => {
   const [userId, setUserId] = useState(12);
   const [mockedData, setMockedData] = useState(true);
-  
-  
 
   return (
     <div className="app">
@@ -19,7 +17,6 @@ const App = () => {
           setUserId={setUserId}
           mockedData={mockedData}
           setMockedData={setMockedData}
-          
         />
         <Aside />
         <Routes>

@@ -23,7 +23,7 @@ function Main({ userId, mockedData }) {
     useState(false);
   const [isUserPerformanceDataLoading, setIsUserPerformanceDataLoading] =
     useState(false);
-    const [isError, setIsError] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const [userData, setUserData] = useState({
     id: 0,
@@ -74,9 +74,8 @@ function Main({ userId, mockedData }) {
 
   userData.fill = 'red';
 
-  
   return isError ? (
-    <Error/>
+    <Error />
   ) : (
     <div className="mainContainer">
       {mockedData ? (

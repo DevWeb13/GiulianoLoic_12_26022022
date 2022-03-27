@@ -31,7 +31,6 @@ function Activity({ activityData, isActivityDataLoading }) {
           <li className="burnedCaloriesLegend">Calories bruléées (kCal)</li>
         </ul>
       </header>
-
       <ResponsiveContainer width="92%" height={175}>
         <BarChart
           data={activityData}
