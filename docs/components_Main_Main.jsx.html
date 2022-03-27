@@ -28,9 +28,9 @@
         <article>
             <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from 'react';
 import propTypes from 'prop-types';
+import Error from '../Error/Error';
 import MainHeader from '../MainHeader/MainHeader';
 import MainSection from '../MainSection/MainSection';
-import Spinner from '../Spinner/Spinner';
 import {
   getUserData,
   getActivity,
@@ -39,14 +39,19 @@ import {
 } from '../../services/dataManager';
 
 /**
- * 
- * @prop {number} userId 
+ *
+ * @prop {number} userId
  * @prop {string} mockedData
  * @returns {React.ReactComponentElement}
  */
 function Main({ userId, mockedData }) {
-  const [isDataLoading, setDataLoading] = useState(false);
-  // const [isError, setIsError] = useState(false);
+  const [isUserDataLoading, setIsUserDataLoading] = useState(false);
+  const [isActivityDataLoading, setIsActivityDataLoading] = useState(false);
+  const [isAverageSessionDataLoading, setIsAverageSessionDataLoading] =
+    useState(false);
+  const [isUserPerformanceDataLoading, setIsUserPerformanceDataLoading] =
+    useState(false);
+  const [isError, setIsError] = useState(false);
 
   const [userData, setUserData] = useState({
     id: 0,
@@ -57,7 +62,7 @@ function Main({ userId, mockedData }) {
       lastName: '',
       age: 0,
     },
-    fill:"",
+    fill: '',
   });
 
   const [activityData, setActivityData] = useState([]);
@@ -67,36 +72,38 @@ function Main({ userId, mockedData }) {
   const [userPerformanceData, setUserPerformanceData] = useState([]);
 
   useEffect(() => {
-    setDataLoading(true);
-    // setUserPerformanceData([]);
-    getData(userId, mockedData).then((data) => setDataLoading(false));
-    // .then((data) => setDataLoading(false))
-    // .then((isDataLoading) => {
-    //   if (userPerformanceData.length === 0) {
-    //     setIsError(true);
-    //   }
-    // });
+    setIsUserDataLoading(true);
+    setIsActivityDataLoading(true);
+    setIsAverageSessionDataLoading(true);
+    setIsUserPerformanceDataLoading(true);
+
+    getUserData(userId, mockedData)
+      .then((userData) => setUserData(userData))
+      .then((_userData) => {
+        setIsUserDataLoading(false);
+        setIsError(false);
+      })
+      .catch((_error) => setIsError(true));
+
+    getActivity(userId, mockedData)
+      .then((activityData) => setActivityData(activityData))
+      .then((_activityData) => setIsActivityDataLoading(false));
+
+    getAverageSession(userId, mockedData)
+      .then((averageSessionData) => setAverageSessionData(averageSessionData))
+      .then((_averageSessionData) => setIsAverageSessionDataLoading(false));
+
+    getUserPerformance(userId, mockedData)
+      .then((userPerformanceData) =>
+        setUserPerformanceData(userPerformanceData)
+      )
+      .then((_userPerformanceData) => setIsUserPerformanceDataLoading(false));
   }, [mockedData, userId]);
 
-  async function getData(userId, mockedData) {
-    getUserData(userId, mockedData).then((userData) => setUserData(userData));
+  userData.fill = 'red';
 
-    getActivity(userId, mockedData).then((activityData) =>
-      setActivityData(activityData)
-    );
-
-    getAverageSession(userId, mockedData).then((averageSessionData) =>
-      setAverageSessionData(averageSessionData)
-    );
-
-    getUserPerformance(userId, mockedData).then((userPerformanceData) =>
-      setUserPerformanceData(userPerformanceData)
-    );
-  }
-  
-  userData.fill = "red";
-  return isDataLoading ? (
-    &lt;Spinner />
+  return isError ? (
+    &lt;Error />
   ) : (
     &lt;div className="mainContainer">
       {mockedData ? (
@@ -108,9 +115,13 @@ function Main({ userId, mockedData }) {
         &lt;MainHeader firstName={userData.userInfos.firstName} />
         &lt;MainSection
           userData={userData}
+          isUserDataLoading={isUserDataLoading}
           activityData={activityData}
+          isActivityDataLoading={isActivityDataLoading}
           averageSessionData={averageSessionData}
+          isAverageSessionDataLoading={isAverageSessionDataLoading}
           userPerformanceData={userPerformanceData}
+          isUserPerformanceDataLoading={isUserPerformanceDataLoading}
         />
       &lt;/main>
     &lt;/div>
@@ -133,13 +144,13 @@ export default Main;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#ActivityTooltip">ActivityTooltip</a></li><li><a href="global.html#addDaysAverageSessions">addDaysAverageSessions</a></li><li><a href="global.html#Average">Average</a></li><li><a href="global.html#findInData">findInData</a></li><li><a href="global.html#formatActivityDate">formatActivityDate</a></li><li><a href="global.html#formatAverageSessionDate">formatAverageSessionDate</a></li><li><a href="global.html#formatPerformanceData">formatPerformanceData</a></li><li><a href="global.html#formatTodayScoreAttribute">formatTodayScoreAttribute</a></li><li><a href="global.html#getActivity">getActivity</a></li><li><a href="global.html#getAverageSession">getAverageSession</a></li><li><a href="global.html#getFromApi">getFromApi</a></li><li><a href="global.html#getUserData">getUserData</a></li><li><a href="global.html#getUserPerformance">getUserPerformance</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#KeyFigures">KeyFigures</a></li><li><a href="global.html#Kpi">Kpi</a></li><li><a href="global.html#Main">Main</a></li><li><a href="global.html#MainHeader">MainHeader</a></li><li><a href="global.html#MainSection">MainSection</a></li><li><a href="global.html#RadarComponent">RadarComponent</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Activity">Activity</a></li><li><a href="global.html#ActivityTooltip">ActivityTooltip</a></li><li><a href="global.html#addDaysAverageSessions">addDaysAverageSessions</a></li><li><a href="global.html#Average">Average</a></li><li><a href="global.html#findInData">findInData</a></li><li><a href="global.html#formatActivityDate">formatActivityDate</a></li><li><a href="global.html#formatAverageSessionDate">formatAverageSessionDate</a></li><li><a href="global.html#formatPerformanceData">formatPerformanceData</a></li><li><a href="global.html#formatTodayScoreAttribute">formatTodayScoreAttribute</a></li><li><a href="global.html#getActivity">getActivity</a></li><li><a href="global.html#getAverageSession">getAverageSession</a></li><li><a href="global.html#getFromApi">getFromApi</a></li><li><a href="global.html#getUserData">getUserData</a></li><li><a href="global.html#getUserPerformance">getUserPerformance</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#KeyFigures">KeyFigures</a></li><li><a href="global.html#Kpi">Kpi</a></li><li><a href="global.html#Main">Main</a></li><li><a href="global.html#MainHeader">MainHeader</a></li><li><a href="global.html#MainSection">MainSection</a></li><li><a href="global.html#ProfilPage">ProfilPage</a></li><li><a href="global.html#RadarComponent">RadarComponent</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Mon Mar 14 2022 12:49:37 GMT+0100 (heure normale d’Europe centrale)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Sun Mar 27 2022 19:06:40 GMT+0200 (heure d’été d’Europe centrale)
 </footer>
 
 <script> prettyPrint(); </script>

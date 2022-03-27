@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/RadarComponent/RadarComponent.jsx</title>
+    <title>JSDoc: Source: pages/ProfilPage/ProfilPage.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/RadarComponent/RadarComponent.jsx</h1>
+    <h1 class="page-title">Source: pages/ProfilPage/ProfilPage.jsx</h1>
 
     
 
@@ -27,55 +27,29 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from 'react';
-import Spinner from '../Spinner/Spinner';
-
-import {
-  Radar,
-  RadarChart,
-  ResponsiveContainer,
-  PolarAngleAxis,
-  PolarGrid,
-} from 'recharts';
-
+import Main from '../../components/Main/Main';
+import { useParams } from 'react-router-dom';
 import propTypes from 'prop-types';
 
 /**
- * Radar component
- * @prop {object} userPerformanceData
- * @return {React.ReactComponentElement}
+ *  @prop {bool} mockedData
+ * @returns {React.ReactComponentElement}
  */
-const RadarComponent = ({ userPerformanceData, isUserPerformanceDataLoading }) => {
-  return isUserPerformanceDataLoading ? (
-    &lt;div className="radar">
-      &lt;Spinner />
-    &lt;/div>
-  ):(
-    &lt;div className="radar">
-      &lt;ResponsiveContainer width="100%" height="100%">
-        &lt;RadarChart data={userPerformanceData} outerRadius={90}>
-          &lt;Radar dataKey="value" fill="red" opacity={0.8} />
-          &lt;PolarGrid radialLines={false} polarRadius={[10, 20, 40, 65, 90]} />
-          &lt;PolarAngleAxis
-            dataKey="kind"
-            tick={{ fill: 'white', fontSize: '12', dy: 0 }}
-            radius={150}
-          />
-        &lt;/RadarChart>
-      &lt;/ResponsiveContainer>
+function ProfilPage({ mockedData }) {
+  let { userId } = useParams();
+
+  return (
+    &lt;div className="profilPage">
+      &lt;Main userId={parseInt(userId)} mockedData={mockedData} />
     &lt;/div>
   );
+}
+
+ProfilPage.propTypes = {
+  mockedData: propTypes.bool,
 };
 
-RadarComponent.propTypes = {
-  userPerformanceData: propTypes.arrayOf(
-    propTypes.exact({
-      value: propTypes.number,
-      kind: propTypes.string,
-    })
-  ),
-};
-
-export default RadarComponent;
+export default ProfilPage;
 </code></pre>
         </article>
     </section>
