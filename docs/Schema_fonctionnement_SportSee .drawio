@@ -1,16 +1,16 @@
-<mxfile host="app.diagrams.net" modified="2022-03-30T13:01:02.080Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.88 Safari/537.36" etag="LoD0ig01KJlF4C78RJ-2" version="16.6.2" type="github">
+<mxfile host="app.diagrams.net" modified="2022-03-30T13:41:53.014Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.88 Safari/537.36" etag="4iGDqSLWLm4Lgpyir3RV" version="16.6.2" type="github">
   <diagram id="hE8aymsUVtcykUhY7BV-" name="Page-1">
-    <mxGraphModel dx="1350" dy="777" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1350" dy="707" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="egxH8QLvThwiy25h8IRN-1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#24FF1C;" vertex="1" parent="1">
+        <mxCell id="egxH8QLvThwiy25h8IRN-1" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CCCCCC;strokeColor=#CCCCCC;" vertex="1" parent="1">
           <mxGeometry x="40" y="40" width="1200" height="670" as="geometry" />
         </mxCell>
-        <mxCell id="egxH8QLvThwiy25h8IRN-2" value="&lt;font style=&quot;font-size: 24px&quot;&gt;index.js&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=#24FF1C;fillColor=#24FF1C;fontSize=12;fontFamily=Helvetica;fontColor=default;" vertex="1" parent="1">
+        <mxCell id="egxH8QLvThwiy25h8IRN-2" value="&lt;font style=&quot;font-size: 24px&quot;&gt;index.js&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=#CCCCCC;fontSize=12;fontFamily=Helvetica;fontColor=default;" vertex="1" parent="1">
           <mxGeometry x="130" y="50" width="100" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="egxH8QLvThwiy25h8IRN-3" value="" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=24;fontColor=default;strokeColor=default;fillColor=#4262FF;" vertex="1" parent="1">
+        <mxCell id="egxH8QLvThwiy25h8IRN-3" value="" style="rounded=1;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=24;fontColor=default;strokeColor=default;fillColor=#E1D5E7;" vertex="1" parent="1">
           <mxGeometry x="80" y="80" width="1120" height="590" as="geometry" />
         </mxCell>
         <mxCell id="egxH8QLvThwiy25h8IRN-4" value="App.jsx" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=24;fontFamily=Helvetica;fontColor=default;" vertex="1" parent="1">
@@ -84,6 +84,9 @@
         </mxCell>
         <mxCell id="egxH8QLvThwiy25h8IRN-38" value="ProfilPage.jsx" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=24;fontFamily=Helvetica;fontColor=default;" vertex="1" parent="1">
           <mxGeometry x="750" y="585" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="egxH8QLvThwiy25h8IRN-39" value="State: userId , mockedData" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=24;fontFamily=Helvetica;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="890" y="430" width="310" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
