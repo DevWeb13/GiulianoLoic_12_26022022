@@ -77,13 +77,12 @@ function Main({ userId, mockedData }) {
   return isError ? (
     <Error />
   ) : (
-    <div className="mainContainer">
-      {mockedData ? (
+    <main className='mainContainer'>
+        {mockedData ? (
         <p className="green">DataMocked</p>
       ) : (
         <p className="red">DataNotMocked</p>
       )}
-      <main>
         <MainHeader firstName={userData.userInfos.firstName} />
         <MainSection
           userData={userData}
@@ -96,7 +95,7 @@ function Main({ userId, mockedData }) {
           isUserPerformanceDataLoading={isUserPerformanceDataLoading}
         />
       </main>
-    </div>
+   
   );
 }
 
