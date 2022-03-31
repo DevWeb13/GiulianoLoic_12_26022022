@@ -75,27 +75,33 @@ function Main({ userId, mockedData }) {
   userData.fill = 'red';
 
   return isError ? (
-    <Error />
-  ) : (
-    <main className='mainContainer'>
-        {mockedData ? (
+    <main className="mainContainer">
+      {mockedData ? (
         <p className="green">DataMocked</p>
       ) : (
         <p className="red">DataNotMocked</p>
       )}
-        <MainHeader firstName={userData.userInfos.firstName} />
-        <MainSection
-          userData={userData}
-          isUserDataLoading={isUserDataLoading}
-          activityData={activityData}
-          isActivityDataLoading={isActivityDataLoading}
-          averageSessionData={averageSessionData}
-          isAverageSessionDataLoading={isAverageSessionDataLoading}
-          userPerformanceData={userPerformanceData}
-          isUserPerformanceDataLoading={isUserPerformanceDataLoading}
-        />
-      </main>
-   
+      <Error />
+    </main>
+  ) : (
+    <main className="mainContainer">
+      {mockedData ? (
+        <p className="green">DataMocked</p>
+      ) : (
+        <p className="red">DataNotMocked</p>
+      )}
+      <MainHeader firstName={userData.userInfos.firstName} />
+      <MainSection
+        userData={userData}
+        isUserDataLoading={isUserDataLoading}
+        activityData={activityData}
+        isActivityDataLoading={isActivityDataLoading}
+        averageSessionData={averageSessionData}
+        isAverageSessionDataLoading={isAverageSessionDataLoading}
+        userPerformanceData={userPerformanceData}
+        isUserPerformanceDataLoading={isUserPerformanceDataLoading}
+      />
+    </main>
   );
 }
 
