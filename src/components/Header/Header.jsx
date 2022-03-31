@@ -11,7 +11,7 @@ import propTypes from 'prop-types';
  * @returns {React.ReactComponentElement}
  */
 function Header({ userId, setUserId, mockedData, setMockedData}) {
-  function userToggle(userId) {
+  function userToggle() {
     userId === 12 ? setUserId(18) : setUserId(12);
   }
 
