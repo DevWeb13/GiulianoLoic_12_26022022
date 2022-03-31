@@ -79,7 +79,7 @@ function formatActivityDate(data) {
       session.day.length - 2,
       session.day.length
     );
-    result[0] === '0' ? (session.day = result[1]) : (session.day = result);
+    result[0] === '0' ? session.day = result[1] : session.day = result;
   });
   return sessions;
 }
