@@ -50,7 +50,7 @@ function Main({ userId, mockedData }) {
     setIsUserPerformanceDataLoading(true);
 
     getUserData(userId, mockedData)
-      .then((userData) => setUserData(userData))
+      .then((data) => setUserData(data))
       .then((_userData) => {
         setIsUserDataLoading(false);
         setIsError(false);
@@ -58,23 +58,23 @@ function Main({ userId, mockedData }) {
       .catch((_error) => setIsError(true));
 
     getActivity(userId, mockedData)
-      .then((activityData) => setActivityData(activityData))
+      .then((data) => setActivityData(data))
       .then((_activityData) => setIsActivityDataLoading(false));
 
     getAverageSession(userId, mockedData)
-      .then((averageSessionData) => setAverageSessionData(averageSessionData))
+      .then((data) => setAverageSessionData(data))
       .then((_averageSessionData) => setIsAverageSessionDataLoading(false));
 
     getUserPerformance(userId, mockedData)
-      .then((userPerformanceData) =>
-        setUserPerformanceData(userPerformanceData)
+      .then((data) =>
+        setUserPerformanceData(data)
       )
       .then((_userPerformanceData) => setIsUserPerformanceDataLoading(false));
   }, [mockedData, userId]);
 
   userData.fill = 'red';
 
-  function mockedDataManager(mockedData) {
+  function mockedDataManager() {
     if (mockedData) {
       return <p className="green">DataMocked</p>;
     }
@@ -83,12 +83,12 @@ function Main({ userId, mockedData }) {
 
   return isError ? (
     <main className="mainContainer">
-      {mockedDataManager(mockedData)}
+      {mockedDataManager()}
       <Error />
     </main>
   ) : (
     <main className="mainContainer">
-      {mockedDataManager(mockedData)}
+      {mockedDataManager()}
       <MainHeader firstName={userData.userInfos.firstName} />
       <MainSection
         userData={userData}
