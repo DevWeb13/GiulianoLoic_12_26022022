@@ -1,6 +1,5 @@
 import React from 'react';
 import propTypes from 'prop-types';
-// import Spinner from "../Spinner/Spinner";
 import Activity from '../Activity/Activity';
 import Average from '../Average/Average';
 import RadarComponent from '../RadarComponent/RadarComponent';
