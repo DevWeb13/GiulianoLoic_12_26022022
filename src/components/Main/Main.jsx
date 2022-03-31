@@ -74,22 +74,21 @@ function Main({ userId, mockedData }) {
 
   userData.fill = 'red';
 
+  function mockedDataManager(mockedData) {
+    if (mockedData) {
+      return <p className="green">DataMocked</p>;
+    }
+    return <p className="red">DataNotMocked</p>;
+  }
+
   return isError ? (
     <main className="mainContainer">
-      {mockedData ? (
-        <p className="green">DataMocked</p>
-      ) : (
-        <p className="red">DataNotMocked</p>
-      )}
+      {mockedDataManager(mockedData)}
       <Error />
     </main>
   ) : (
     <main className="mainContainer">
-      {mockedData ? (
-        <p className="green">DataMocked</p>
-      ) : (
-        <p className="red">DataNotMocked</p>
-      )}
+      {mockedDataManager(mockedData)}
       <MainHeader firstName={userData.userInfos.firstName} />
       <MainSection
         userData={userData}
