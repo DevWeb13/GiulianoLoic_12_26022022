@@ -28,7 +28,7 @@ const server = 'http://localhost:3001/';
 async function getUserPerformance(userId, mockedData) {
   if (mockedData)
     return formatPerformanceData(findInData(USER_PERFORMANCE, userId));
-  return await getFromApi('user/' + userId + '/performance').then((data) =>
+  return getFromApi('user/' + userId + '/performance').then((data) =>
     formatPerformanceData(data)
   );
 }
@@ -46,7 +46,7 @@ async function getAverageSession(userId, mockedData) {
     return formatAverageSessionDate(
       addDaysAverageSessions(findInData(USER_AVERAGE_SESSIONS, userId))
     );
-  return await getFromApi('user/' + userId + '/average-sessions')
+  return getFromApi('user/' + userId + '/average-sessions')
     .then((data) => addDaysAverageSessions(data))
     .then((sessions) => formatAverageSessionDate(sessions));
 }
@@ -61,7 +61,7 @@ async function getAverageSession(userId, mockedData) {
  */
 async function getActivity(userId, mockedData) {
   if (mockedData) return formatActivityDate(findInData(USER_ACTIVITY, userId));
-  return await getFromApi('user/' + userId + '/activity').then((data) =>
+  return getFromApi('user/' + userId + '/activity').then((data) =>
     formatActivityDate(data)
   );
 }
@@ -79,7 +79,7 @@ async function getUserData(userId, mockedData) {
     return formatScore(
       formatTodayScoreAttribute(findInData(USER_MAIN_DATA, userId))
     );
-  return await getFromApi('user/' + userId).then((data) =>
+  return getFromApi('user/' + userId).then((data) =>
     formatScore(formatTodayScoreAttribute(data))
   );
 }
