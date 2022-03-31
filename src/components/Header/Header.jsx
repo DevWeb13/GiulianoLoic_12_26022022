@@ -27,7 +27,7 @@ function Header({ userId, setUserId, mockedData, setMockedData}) {
         <NavLink to="/" >
           Accueil
         </NavLink>
-        <NavLink to={`/user/${userId}`} onClick={() => userToggle(userId)}>
+        <NavLink to={`/user/${userId}`} onClick={userToggle}>
           Profil
         </NavLink>
         <NavLink to={`/user/${userId}`} onClick={dataToggle}>
