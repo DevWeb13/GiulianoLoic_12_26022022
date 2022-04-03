@@ -19,6 +19,12 @@ User profile page allowing the user to track the number of sessions performed as
 |                   [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=DevWeb13_GiulianoLoic_12_26022022&metric=bugs)](https://sonarcloud.io/summary/new_code?id=DevWeb13_GiulianoLoic_12_26022022)                   |    [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=DevWeb13_GiulianoLoic_12_26022022&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=DevWeb13_GiulianoLoic_12_26022022)    |                                                                                                                                                                                                                 |
 |        [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=DevWeb13_GiulianoLoic_12_26022022&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=DevWeb13_GiulianoLoic_12_26022022)        |                                                                                                                                                                                                                            |
 
+## To start
+
+Clone the project, go to the project folder, install the dependencies by running the command
+
+### `npm install`
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
