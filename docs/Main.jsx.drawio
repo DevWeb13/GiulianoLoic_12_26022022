@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-04-03T08:13:57.681Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36" etag="BqG3AVIKCNs1psPmNIGT" version="17.4.0" type="github">
+<mxfile host="app.diagrams.net" modified="2022-04-03T08:27:33.392Z" agent="5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.60 Safari/537.36" etag="A2eFlBv4O1DdJvxFicDD" version="17.4.0" type="github">
   <diagram id="gcOafUqYc3t4vaom9Tzp" name="Page-1">
     <mxGraphModel dx="1350" dy="707" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
@@ -13,13 +13,13 @@
         <mxCell id="aEwP8IYxMUIgGgLdAbBH-4" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#99FF99;" vertex="1" parent="1">
           <mxGeometry x="460" y="290" width="250" height="340" as="geometry" />
         </mxCell>
-        <mxCell id="aEwP8IYxMUIgGgLdAbBH-5" value="mainHeader.jsx" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=24;fontFamily=Helvetica;fontColor=default;" vertex="1" parent="1">
+        <mxCell id="aEwP8IYxMUIgGgLdAbBH-5" value="MainHeader.jsx" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=24;fontFamily=Helvetica;fontColor=default;" vertex="1" parent="1">
           <mxGeometry x="480" y="310" width="180" height="30" as="geometry" />
         </mxCell>
         <mxCell id="aEwP8IYxMUIgGgLdAbBH-6" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#80FF00;" vertex="1" parent="1">
           <mxGeometry x="730" y="290" width="230" height="340" as="geometry" />
         </mxCell>
-        <mxCell id="aEwP8IYxMUIgGgLdAbBH-7" value="mainSection.jsx" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=24;fontFamily=Helvetica;fontColor=default;" vertex="1" parent="1">
+        <mxCell id="aEwP8IYxMUIgGgLdAbBH-7" value="MainSection.jsx" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=24;fontFamily=Helvetica;fontColor=default;" vertex="1" parent="1">
           <mxGeometry x="750" y="310" width="180" height="30" as="geometry" />
         </mxCell>
         <mxCell id="aEwP8IYxMUIgGgLdAbBH-10" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FF0000;" vertex="1" parent="1">
