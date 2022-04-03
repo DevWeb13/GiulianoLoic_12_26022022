@@ -1,5 +1,5 @@
 import React from 'react';
-import { RadialBarChart, RadialBar } from 'recharts';
+import { RadialBarChart, RadialBar,ResponsiveContainer } from 'recharts';
 import propTypes from 'prop-types';
 import Spinner from '../Spinner/Spinner';
 
@@ -20,7 +20,9 @@ function Kpi({ userData, isUserDataLoading }) {
     </div>
   ) : (
     <div className="kpi">
+       
       <h2>Score</h2>
+      <ResponsiveContainer width="100%" height="100%">
       <RadialBarChart
         width={256}
         height={256}
@@ -36,12 +38,15 @@ function Kpi({ userData, isUserDataLoading }) {
         <RadialBar dataKey="score" cornerRadius={10} />
         <circle cx="50%" cy="50%" fill="white" r="70"></circle>
       </RadialBarChart>
+      </ResponsiveContainer>
       <p className="p">
         <span>{userData.score}%</span> <br />
         de votre <br />
         objectif
       </p>
+      
     </div>
+    
   );
 }
 
