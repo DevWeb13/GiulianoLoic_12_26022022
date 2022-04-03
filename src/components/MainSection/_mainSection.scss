@@ -1,16 +1,16 @@
 section {
   display                 : flex;
-  height                  : 38.1875rem;
-  justify-content         : space-between;
+  height                  : 68%;
+  justify-content         : space-around;
   .activityContainer {
     display               : grid;
-    width                 : 74%;
+    width                 :63%;
     gap                   : 1.8125rem;
     grid-template-areas   : 
       'activity activity activity'
       'objectives radar kpi';
-    grid-template-columns : repeat(3, 16.0625rem);
-    grid-template-rows    : 20rem 16.125rem;
+    grid-template-columns : repeat(3, 31%);
+    grid-template-rows    : 50% 43%;
     .activity,
     .average,
     .radar,
@@ -41,7 +41,7 @@ section {
     width                 : 23%;
     .keyFigures {
       background          : #fbfbfb;
-      height              : 7.75rem;
+      height              : 21%;
     }
   }
 }
