@@ -66,9 +66,7 @@ function Main({ userId, mockedData }) {
       .then((_averageSessionData) => setIsAverageSessionDataLoading(false));
 
     getUserPerformance(userId, mockedData)
-      .then((data) =>
-        setUserPerformanceData(data)
-      )
+      .then((data) => setUserPerformanceData(data))
       .then((_userPerformanceData) => setIsUserPerformanceDataLoading(false));
   }, [mockedData, userId]);
 
@@ -89,7 +87,10 @@ function Main({ userId, mockedData }) {
   ) : (
     <main className="mainContainer">
       {mockedDataManager()}
-      <MainHeader firstName={userData.userInfos.firstName} />
+      <MainHeader
+        firstName={userData.userInfos.firstName}
+        isUserDataLoading={isUserDataLoading}
+      />
       <MainSection
         userData={userData}
         isUserDataLoading={isUserDataLoading}
