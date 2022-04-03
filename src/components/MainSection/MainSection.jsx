@@ -6,13 +6,16 @@ import RadarComponent from '../RadarComponent/RadarComponent';
 import Kpi from '../Kpi/Kpi';
 import KeyFigures from '../KeyFigures/KeyFigures';
 
-
 /**
  * MainSection component
- * @prop {object} userData 
- * @prop {object} activityData 
- * @prop {object} averageSessionData 
- * @prop {object} userPerformanceData 
+ * @prop {object} userData
+ * @prop {bool}  isUserDataLoading
+ * @prop {object} activityData
+ * @prop {bool}  isActivityDataLoading
+ * @prop {object} averageSessionData
+ * @prop {bool}  isAverageSessionDataLoading
+ * @prop {object} userPerformanceData
+ * @prop {bool}  isUserPerformanceDataLoading
  * @returns {React.ReactComponentElement}
  */
 function MainSection({
@@ -54,10 +57,19 @@ function MainSection({
   return (
     <section>
       <div className="activityContainer">
-        <Activity activityData={activityData} isActivityDataLoading={isActivityDataLoading}/>
-        <Average averageSessionData={averageSessionData}  isAverageSessionDataLoading={isAverageSessionDataLoading}/>
-        <RadarComponent userPerformanceData={userPerformanceData} isUserPerformanceDataLoading={isUserPerformanceDataLoading}/>
-        <Kpi userData={userData} isUserDataLoading={isUserDataLoading}/>
+        <Activity
+          activityData={activityData}
+          isActivityDataLoading={isActivityDataLoading}
+        />
+        <Average
+          averageSessionData={averageSessionData}
+          isAverageSessionDataLoading={isAverageSessionDataLoading}
+        />
+        <RadarComponent
+          userPerformanceData={userPerformanceData}
+          isUserPerformanceDataLoading={isUserPerformanceDataLoading}
+        />
+        <Kpi userData={userData} isUserDataLoading={isUserDataLoading} />
       </div>
       <div className="keyFiguresContainer">
         {keyFiguresIcon.map((elm, index) => (
