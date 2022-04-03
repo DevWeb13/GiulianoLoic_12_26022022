@@ -1,6 +1,7 @@
 ![Logo of the project](https://github.com/DevWeb13/GiulianoLoic_12_26022022/blob/master/public/assets/logo.svg)
 
 # SportSee
+
 > Sports coaching.
 
 User profile page allowing the user to track the number of sessions performed as well as the number of calories burned.
@@ -10,7 +11,6 @@ User profile page allowing the user to track the number of sessions performed as
 ## Made With
 
 ![JavaScript](https://img.shields.io/badge/Language-JS-yellow) ![REACT](https://img.shields.io/badge/Framework-React-blue) ![SASS](https://img.shields.io/badge/Style-SASS-ff69b4) ![Vercel](https://img.shields.io/badge/Deploy-Vercel-black) ![Rechart](https://img.shields.io/badge/Library-Rechart-success)
-
 
 |                                                                                                              summary                                                                                                               |                                                                                                           score                                                                                                            |                                                                                                      to do                                                                                                      |
 | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
