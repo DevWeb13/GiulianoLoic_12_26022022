@@ -14,7 +14,7 @@ import {
   formatScore,
 } from './dataFormatter';
 
-const server = 'http://localhost:3001/';
+const server = 'https://server-p12.vercel.app/';
 
 // Get Data ********************************************************************************************
 /**
